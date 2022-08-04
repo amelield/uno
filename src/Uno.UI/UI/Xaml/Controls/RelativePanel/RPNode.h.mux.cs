@@ -1,6 +1,6 @@
-﻿using Uno.UI.Xaml.Controls;
+using Uno.UI.Xaml.Controls;
 using Windows.Foundation;
-using Windows.UI.Xaml;
+using Microsoft.UI.Xaml;
 
 namespace Uno.UI.Xaml.Controls;
 

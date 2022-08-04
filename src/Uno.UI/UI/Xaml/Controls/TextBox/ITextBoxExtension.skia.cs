@@ -1,5 +1,5 @@
-﻿using Windows.Foundation;
-using Windows.UI.Xaml.Media;
+using Windows.Foundation;
+using Microsoft.UI.Xaml.Media;
 
 namespace Uno.UI.Xaml.Controls.Extensions
 {
