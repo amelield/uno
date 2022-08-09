@@ -1197,7 +1197,7 @@ declare namespace Windows.UI.ViewManagement {
         static setBackgroundColor(colorString: string): void;
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     class Application {
         private static dispatchThemeChange;
         private static dispatchVisibilityChange;
@@ -1206,13 +1206,13 @@ declare namespace Windows.UI.Xaml {
         static observeVisibility(): void;
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     enum ApplicationTheme {
         Light = "Light",
         Dark = "Dark"
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     enum NativePointerEvent {
         pointerover = 1,
         pointerout = 2,
@@ -1240,11 +1240,11 @@ declare namespace Windows.UI.Xaml {
         private static toPointerDeviceType;
     }
 }
-declare namespace Windows.UI.Xaml {
-    class UIElement extends Windows.UI.Xaml.UIElement_Pointers {
+declare namespace Microsoft.UI.Xaml {
+    class UIElement extends Microsoft.UI.Xaml.UIElement_Pointers {
     }
 }
-declare namespace Windows.UI.Xaml.Media.Animation {
+declare namespace Microsoft.UI.Xaml.Media.Animation {
     class RenderingLoopAnimator {
         private managedHandle;
         private static activeInstances;
@@ -1265,7 +1265,7 @@ declare namespace Windows.UI.Xaml.Media.Animation {
         private _isEnabled;
     }
 }
-declare namespace Windows.UI.Xaml.Input {
+declare namespace Microsoft.UI.Xaml.Input {
     class FocusVisual {
         private static focusVisualId;
         private static focusVisual;
@@ -1626,7 +1626,7 @@ declare namespace Windows.Storage {
         static unmarshal(pData: number): StorageFolderMakePersistentParams;
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     class NativePointerEventArgs {
         HtmlId: number;
         Event: number;
@@ -1647,13 +1647,13 @@ declare namespace Windows.UI.Xaml {
         marshal(pData: number): void;
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     class NativePointerEventResult {
         Result: number;
         static unmarshal(pData: number): NativePointerEventResult;
     }
 }
-declare namespace Windows.UI.Xaml {
+declare namespace Microsoft.UI.Xaml {
     class NativePointerSubscriptionParams {
         HtmlId: number;
         Events: number;
