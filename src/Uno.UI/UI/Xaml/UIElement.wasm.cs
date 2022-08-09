@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Runtime.InteropServices;
 using Windows.Foundation;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Input;
+using Microsoft.UI.Xaml.Media;
 using Uno.Collections;
 using Uno.Extensions;
 using Uno.Foundation;
@@ -14,10 +14,10 @@ using Uno.UI;
 using Uno.UI.Extensions;
 using Uno.UI.Xaml;
 using Uno.UI.Xaml.Core;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using Windows.System;
 
-namespace Windows.UI.Xaml
+namespace Microsoft.UI.Xaml
 {
 	public partial class UIElement : DependencyObject
 	{
@@ -549,7 +549,7 @@ namespace Windows.UI.Xaml
 				originalParent.RemoveChild(this);
 			}
 
-			if (this is Windows.UI.Xaml.Controls.Panel panel)
+			if (this is Microsoft.UI.Xaml.Controls.Panel panel)
 			{
 				panel.Children.Clear();
 			}
