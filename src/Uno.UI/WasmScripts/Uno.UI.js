@@ -265,7 +265,7 @@ var MonoSupport;
                     jsCallDispatcher.registerScope("UnoStatic_Windows_Storage_StorageFolder", Windows.Storage.StorageFolder);
                     jsCallDispatcher.registerScope("UnoStatic_Windows_Storage_ApplicationDataContainer", Windows.Storage.ApplicationDataContainer);
                     jsCallDispatcher.registerScope("UnoStatic_Windows_ApplicationModel_DataTransfer_DragDrop_Core_DragDropExtension", Windows.ApplicationModel.DataTransfer.DragDrop.Core.DragDropExtension);
-                    jsCallDispatcher.registerScope("UnoStatic_Windows_UI_Xaml_UIElement", Windows.UI.Xaml.UIElement);
+                    jsCallDispatcher.registerScope("UnoStatic_Windows_UI_Xaml_UIElement", Microsoft.UI.Xaml.UIElement);
                     jsCallDispatcher._isUnoRegistered = true;
                 }
                 const { ns, methodName } = jsCallDispatcher.parseIdentifier(identifier);
@@ -1106,7 +1106,7 @@ var Uno;
             getEventExtractor(eventExtractorId) {
                 if (eventExtractorId) {
                     //
-                    // NOTE TO MAINTAINERS: Keep in sync with Windows.UI.Xaml.UIElement.HtmlEventExtractor
+                    // NOTE TO MAINTAINERS: Keep in sync with Microsoft.UI.Xaml.UIElement.HtmlEventExtractor
                     //
                     switch (eventExtractorId) {
                         case 3:
@@ -1643,16 +1643,16 @@ var Uno;
                 }
                 else {
                     if (!WindowManager.resizeMethod) {
-                        WindowManager.resizeMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.Window:Resize");
+                        WindowManager.resizeMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.Window:Resize");
                     }
                     if (!WindowManager.dispatchEventMethod) {
-                        WindowManager.dispatchEventMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.UIElement:DispatchEvent");
+                        WindowManager.dispatchEventMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.UIElement:DispatchEvent");
                     }
                     if (!WindowManager.focusInMethod) {
-                        WindowManager.focusInMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.Input.FocusManager:ReceiveFocusNative");
+                        WindowManager.focusInMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.Input.FocusManager:ReceiveFocusNative");
                     }
                     if (!WindowManager.dispatchSuspendingMethod) {
-                        WindowManager.dispatchSuspendingMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.Application:DispatchSuspending");
+                        WindowManager.dispatchSuspendingMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.Application:DispatchSuspending");
                     }
                 }
             }
@@ -4323,7 +4323,7 @@ var Windows;
                 }
                 static observeSystemTheme() {
                     if (!Application.dispatchThemeChange) {
-                        Application.dispatchThemeChange = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.Application:DispatchSystemThemeChange");
+                        Application.dispatchThemeChange = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.Application:DispatchSystemThemeChange");
                     }
                     if (window.matchMedia) {
                         window.matchMedia('(prefers-color-scheme: dark)').addEventListener("change", () => {
@@ -4333,7 +4333,7 @@ var Windows;
                 }
                 static observeVisibility() {
                     if (!Application.dispatchVisibilityChange) {
-                        Application.dispatchVisibilityChange = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.Application:DispatchVisibilityChange");
+                        Application.dispatchVisibilityChange = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.Application:DispatchVisibilityChange");
                     }
                     if (document.onvisibilitychange !== undefined) {
                         document.addEventListener("visibilitychange", () => {
@@ -4393,18 +4393,18 @@ var Windows;
             class UIElement_Pointers {
                 static setPointerEventArgs(pArgs) {
                     if (!Xaml.UIElement._dispatchPointerEventMethod) {
-                        Xaml.UIElement._dispatchPointerEventMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.UIElement:OnNativePointerEvent");
+                        Xaml.UIElement._dispatchPointerEventMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.UIElement:OnNativePointerEvent");
                     }
                     Xaml.UIElement._dispatchPointerEventArgs = pArgs;
                 }
                 static setPointerEventResult(pArgs) {
                     if (!Xaml.UIElement._dispatchPointerEventMethod) {
-                        Xaml.UIElement._dispatchPointerEventMethod = Module.mono_bind_static_method("[Uno.UI] Windows.UI.Xaml.UIElement:OnNativePointerEvent");
+                        Xaml.UIElement._dispatchPointerEventMethod = Module.mono_bind_static_method("[Uno.UI] Microsoft.UI.Xaml.UIElement:OnNativePointerEvent");
                     }
                     Xaml.UIElement._dispatchPointerEventResult = pArgs;
                 }
                 static subscribePointerEvents(pParams) {
-                    const params = Windows.UI.Xaml.NativePointerSubscriptionParams.unmarshal(pParams);
+                    const params = Microsoft.UI.Xaml.NativePointerSubscriptionParams.unmarshal(pParams);
                     const element = WindowManager.current.getView(params.HtmlId);
                     if (params.Events & NativePointerEvent.pointerover) {
                         element.addEventListener("pointerover", Xaml.UIElement.onPointerEventReceived);
@@ -4429,7 +4429,7 @@ var Windows;
                     }
                 }
                 static unSubscribePointerEvents(pParams) {
-                    const params = Windows.UI.Xaml.NativePointerSubscriptionParams.unmarshal(pParams);
+                    const params = Microsoft.UI.Xaml.NativePointerSubscriptionParams.unmarshal(pParams);
                     const element = WindowManager.current.getView(params.HtmlId);
                     if (!element) {
                         return;
@@ -4483,7 +4483,7 @@ var Windows;
                     args.HtmlId = Number(element.getAttribute("XamlHandle"));
                     args.marshal(Xaml.UIElement._dispatchPointerEventArgs);
                     Xaml.UIElement._dispatchPointerEventMethod();
-                    const response = Windows.UI.Xaml.NativePointerEventResult.unmarshal(Xaml.UIElement._dispatchPointerEventResult);
+                    const response = Microsoft.UI.Xaml.NativePointerEventResult.unmarshal(Xaml.UIElement._dispatchPointerEventResult);
                     if (response.Result & HtmlEventDispatchResult.StopPropagation) {
                         evt.stopPropagation();
                     }
@@ -4564,7 +4564,7 @@ var Windows;
                         wheelDeltaX = 0;
                         wheelDeltaY = 0;
                     }
-                    const args = new Windows.UI.Xaml.NativePointerEventArgs();
+                    const args = new Microsoft.UI.Xaml.NativePointerEventArgs();
                     args.Event = Xaml.UIElement.toNativeEvent(evt.type);
                     args.pointerId = pointerId;
                     args.x = evt.clientX;
@@ -4629,7 +4629,7 @@ var Windows;
     (function (UI) {
         var Xaml;
         (function (Xaml) {
-            class UIElement extends Windows.UI.Xaml.UIElement_Pointers {
+            class UIElement extends Microsoft.UI.Xaml.UIElement_Pointers {
             }
             Xaml.UIElement = UIElement;
         })(Xaml = UI.Xaml || (UI.Xaml = {}));
