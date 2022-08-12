@@ -1,8 +1,8 @@
-﻿#nullable enable
+#nullable enable
 
 using System;
 using System.Windows;
-using Windows.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Controls;
 using Uno.Disposables;
 using Uno.UI.Runtime.Skia.WPF.Controls;
 using Uno.UI.Skia.Platform;
@@ -138,7 +138,7 @@ namespace Uno.UI.Runtime.Skia.WPF.Extensions.UI.Xaml.Controls
 				return;
 			}
 
-			var transformToRoot = _contentElement.TransformToVisual(Windows.UI.Xaml.Window.Current.Content);
+			var transformToRoot = _contentElement.TransformToVisual(Microsoft.UI.Xaml.Window.Current.Content);
 			var point = transformToRoot.TransformPoint(new Point(0, 0));
 			if (textInputLayer.Children.Contains(_currentInputWidget))
 			{
@@ -196,7 +196,7 @@ namespace Uno.UI.Runtime.Skia.WPF.Extensions.UI.Xaml.Controls
 
 		public int GetSelectionLength() => _currentInputWidget?.SelectionLength ?? 0;
 
-		public void SetForeground(Windows.UI.Xaml.Media.Brush brush)
+		public void SetForeground(Microsoft.UI.Xaml.Media.Brush brush)
 		{
 			if (_currentInputWidget != null)
 			{

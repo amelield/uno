@@ -1,4 +1,4 @@
-﻿#nullable enable
+#nullable enable
 
 using System;
 using System.Collections.Generic;
@@ -65,9 +65,9 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 				_javaObjectSymbol = comp.GetTypeByMetadataName("Java.Lang.Object");
 				_androidActivitySymbol = comp.GetTypeByMetadataName("Android.App.Activity");
 				_androidFragmentSymbol = comp.GetTypeByMetadataName("AndroidX.Fragment.App.Fragment");
-				_bindableAttributeSymbol = comp.GetTypeByMetadataName("Windows.UI.Xaml.Data.BindableAttribute");
+				_bindableAttributeSymbol = comp.GetTypeByMetadataName("Microsoft.UI.Xaml.Data.BindableAttribute");
 				_iFrameworkElementSymbol = comp.GetTypeByMetadataName(XamlConstants.Types.IFrameworkElement);
-				_frameworkElementSymbol = comp.GetTypeByMetadataName("Windows.UI.Xaml.FrameworkElement");
+				_frameworkElementSymbol = comp.GetTypeByMetadataName("Microsoft.UI.Xaml.FrameworkElement");
 				_isUnoSolution = _context.GetMSBuildPropertyValue("_IsUnoUISolution") == "true";
 				_analyzerSuppressions = context.GetMSBuildPropertyValue("XamlGeneratorAnalyzerSuppressionsProperty").Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 			}
@@ -154,8 +154,8 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 					builder.AppendLineInvariant($"using Uno.UI;");
 					builder.AppendLineInvariant($"using Uno.UI.Controls;");
 					builder.AppendLineInvariant($"using Uno.UI.DataBinding;");
-					builder.AppendLineInvariant($"using Windows.UI.Xaml;");
-					builder.AppendLineInvariant($"using Windows.UI.Xaml.Data;");
+					builder.AppendLineInvariant($"using Microsoft.UI.Xaml;");
+					builder.AppendLineInvariant($"using Microsoft.UI.Xaml.Data;");
 					builder.AppendLineInvariant($"using Uno.Diagnostics.Eventing;");
 					builder.AppendLineInvariant("#if __MACOS__");
 					builder.AppendLineInvariant("using AppKit;");
@@ -167,7 +167,7 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 						{
 							if (_bindableAttributeSymbol != null && typeSymbol.FindAttribute(_bindableAttributeSymbol) == null)
 							{
-								builder.AppendLineInvariant(@"[global::Windows.UI.Xaml.Data.Bindable]");
+								builder.AppendLineInvariant(@"[global::Microsoft.UI.Xaml.Data.Bindable]");
 							}
 
 							AnalyzerSuppressionsGenerator.Generate(builder, _analyzerSuppressions);
@@ -798,17 +798,17 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 
 					#endregion
 
-					public void SetBinding(object target, string dependencyProperty, global::Windows.UI.Xaml.Data.BindingBase binding)
+					public void SetBinding(object target, string dependencyProperty, global::Microsoft.UI.Xaml.Data.BindingBase binding)
 					{{
 						__Store.SetBinding(target, dependencyProperty, binding);
 					}}
 
-					public void SetBinding(string dependencyProperty, global::Windows.UI.Xaml.Data.BindingBase binding)
+					public void SetBinding(string dependencyProperty, global::Microsoft.UI.Xaml.Data.BindingBase binding)
 					{{
 						__Store.SetBinding(dependencyProperty, binding);
 					}}
 
-					public void SetBinding(DependencyProperty dependencyProperty, global::Windows.UI.Xaml.Data.BindingBase binding)
+					public void SetBinding(DependencyProperty dependencyProperty, global::Microsoft.UI.Xaml.Data.BindingBase binding)
 					{{
 						__Store.SetBinding(dependencyProperty, binding);
 					}}
@@ -825,7 +825,7 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 
 					partial void OnTemplatedParentChangedPartial(DependencyPropertyChangedEventArgs e);
 
-					public global::Windows.UI.Xaml.Data.BindingExpression GetBindingExpression(DependencyProperty dependencyProperty)
+					public global::Microsoft.UI.Xaml.Data.BindingExpression GetBindingExpression(DependencyProperty dependencyProperty)
 						=>  __Store.GetBindingExpression(dependencyProperty);
 
 					public void ResumeBindings() 
@@ -911,11 +911,11 @@ namespace Uno.UI.SourceGenerators.DependencyObject
 
 				if (_isUnoSolution && !typeSymbol.IsSealed)
 				{
-					builder.AppendLineInvariant("void IDependencyObjectInternal.OnPropertyChanged2(global::Windows.UI.Xaml.DependencyPropertyChangedEventArgs args) => OnPropertyChanged2(args);");
+					builder.AppendLineInvariant("void IDependencyObjectInternal.OnPropertyChanged2(global::Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs args) => OnPropertyChanged2(args);");
 
 					if (typeSymbol.GetMethodsWithName("OnPropertyChanged2").None(m => m.Parameters.Length == 1))
 					{
-						builder.AppendLineInvariant("internal virtual void OnPropertyChanged2(global::Windows.UI.Xaml.DependencyPropertyChangedEventArgs args) {{ }}");
+						builder.AppendLineInvariant("internal virtual void OnPropertyChanged2(global::Microsoft.UI.Xaml.DependencyPropertyChangedEventArgs args) {{ }}");
 					}
 				}
 			}
