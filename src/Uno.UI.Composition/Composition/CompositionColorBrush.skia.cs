@@ -10,7 +10,7 @@ namespace Microsoft.UI.Composition
 	{
 		internal override void UpdatePaint(SKPaint paint, SKRect bounds)
 		{
-			paint.Color = Color.ToSKColor(Compositor.CurrentOpacity);
+			paint.Color = Color.ToSKColor();
 		}
 	}
 }

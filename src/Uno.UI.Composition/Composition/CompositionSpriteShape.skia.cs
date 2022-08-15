@@ -75,6 +75,8 @@ namespace Microsoft.UI.Composition
 					paint.Shader = null;
 				}
 			}
+
+			paint.ColorFilter = Compositor.CurrentOpacityColorFilter;
 			
 			return paint;
 		}
